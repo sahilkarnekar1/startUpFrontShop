@@ -1,0 +1,31 @@
+.c1VectorClass{
+    height: 100vh;
+}
+.makePosition{
+    position: absolute;
+}
+.setWidth8687{
+    width: 553px;
+    height: 382px;
+    left: 120px;
+    top: 157px;
+}
+.setWidth78687{
+    width: 553px;
+    height: 150px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    color: #2D3748;
+}
+.setMargin78687{
+    margin: 0;
+   
+}
+.setWidthForLandingDeac{
+    width: 436px;
+    height: 102px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
