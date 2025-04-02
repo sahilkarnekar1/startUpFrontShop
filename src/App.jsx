@@ -1,5 +1,6 @@
 
 import LandingPage from './landingPages/LandingPage'
+import ShopRegistration from './landingPages/ShopRegistration'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
     <div>
         <LandingPage/>
+        {/* <ShopRegistration/> */}
     </div>
    
     </>

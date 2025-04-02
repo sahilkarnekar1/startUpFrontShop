@@ -1,0 +1,22 @@
+.c1VectorClass{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+.makePosition{
+    position: absolute;
+}
+.cornerRightDiv{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    height: 100vh;
+}
+.cornerRightDivImg{
+  bottom: 0;
+    right: 0;
+}
+.corner2ImgSize{
+    height: 100vh;
+}
