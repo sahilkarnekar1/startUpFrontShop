@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <div>
-        <LandingPage/>
+        {/* <LandingPage/> */}
         {/* <ShopRegistration/> */}
         <p>jhdskjs</p>
     </div>
