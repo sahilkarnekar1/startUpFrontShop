@@ -9,7 +9,8 @@ function App() {
     <div>
         {/* <LandingPage/> */}
         <ShopRegistration/>
-
+hjbhbjvh
+nsdv
     </div>
    
     </>
