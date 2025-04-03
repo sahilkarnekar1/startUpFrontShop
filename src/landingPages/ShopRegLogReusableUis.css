@@ -1,19 +1,21 @@
-.regLogUisMainComp{
+.regLogUisMainComp {
     position: absolute;
     width: 590px;
     height: auto;
-    border-radius: 60px;
+    border-radius: 40px;
     background-color: #ffffff;
     filter: drop-shadow(0px 14px 44px #0000002b);
-    height: 400px;
     display: flex;
     justify-content: center;
-}
-.regLogUisSubDiv{
+    left: 555px;
+    top: 98px;
+  }
+  .regLogUisSubDiv {
     width: 470px;
-}
-.regLogUisMainCompTitle{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .regLogUisMainCompTitle {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-weight: bold;
     font-size: 40px;
     color: #111111;
@@ -22,12 +24,87 @@
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
-}
-.regLogUisMainCompinputStyles{
-    width: 100%;
-    height: 35px;
+  }
+  .regLogUisMainCompinputStyles {
+    width: 470px;
+    height: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
     border: 1px solid #575757;
-}
+    margin-bottom: 15px;
+  }
+  .regLogUisMainCompButton {
+    position: relative;
+    width: 282px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #ffd700;
+    border: none;
+    cursor: pointer;
+    left: 20%;
+    margin-top: 10px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .regLogUisMainCompButton:hover {
+    background-color: #ffcc00;
+  }
+  
+  .regLogUisMainCompregistrationpageline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .regLogUisMainCompregistrationpageline1,
+  .regLogUisMainCompregistrationpageline2 {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #575757;
+  }
+  
+  .regLogUisMainCompOR {
+    font-size: 15px;
+    font-weight: bold;
+    color: #575757;
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+  .regLogUisMainCompaccounts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .regLogUisMainCompIcon {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .regLogUisLoginText {
+    text-align: center;
+    font-size: 16px;
+    color: #575757;
+    margin-top: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 25px;
+  }
+  
+  .regLogUisLoginLink {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .regLogUisLoginLink:hover {
+    text-decoration: underline;
+  }
+  
