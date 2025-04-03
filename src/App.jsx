@@ -11,6 +11,9 @@ function App() {
         <ShopRegistration/>
 hjbhbjvh
 nsdv
+
+
+
     </div>
    
     </>
