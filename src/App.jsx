@@ -8,9 +8,7 @@ function App() {
     <>
     <div>
         {/* <LandingPage/> */}
-
         {/* <ShopRegistration/> */}
-        
 
     </div>
    
