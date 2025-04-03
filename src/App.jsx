@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <div>
-        <LandingPage/>
+        {/* <LandingPage/> */}
         {/* <ShopRegistration/> */}
 
     </div>
