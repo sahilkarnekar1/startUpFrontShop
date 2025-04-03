@@ -7,13 +7,8 @@ function App() {
   return (
     <>
     <div>
-        {/* <LandingPage/> */}
-        <ShopRegistration/>
-hjbhbjvh
-nsdv
-
-
-
+        <LandingPage/>
+        {/* <ShopRegistration/> */}
     </div>
    
     </>
