@@ -6,7 +6,10 @@ const ShopRegistration = () => {
   return (
     <div>
       <LandingBgComp/>
+      <div className="newWidth100ForCenterDiv">
       <ShopRegLogReusableUis/>
+      </div>
+     
     </div>
   )
 }
