@@ -9,7 +9,7 @@ function App() {
     <div>
         <LandingPage/>
         {/* <ShopRegistration/> */}
-        <p>jhdskjs</p>
+        
     </div>
    
     </>
