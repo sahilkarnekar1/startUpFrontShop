@@ -5,19 +5,13 @@ import registrationpageline2 from "../uiuxassets/registrationpageline2.png";
 import googleicon from "../uiuxassets/googleicon.png";
 import facebookicon from "../uiuxassets/facebookicon.png";
 import xicon from "../uiuxassets/xicon.png";
+import { Link } from "react-router-dom";
 
 const ShopRegLogReusableUis = ({ title }) => {
   return (
     <div className="regLogUisMainComp">
       <div className="regLogUisSubDiv">
-        <h4 className="regLogUisMainCompTitle">Registration</h4>
-        <input
-          className="regLogUisMainCompinputStyles"
-          type="text"
-          name=""
-          id=""
-          placeholder="  Create User ID"
-        />
+        <h4 className="regLogUisMainCompTitle">Login</h4>
         <input
           className="regLogUisMainCompinputStyles"
           type="text"
@@ -60,8 +54,8 @@ const ShopRegLogReusableUis = ({ title }) => {
           <img className="regLogUisMainCompIcon" src={xicon} alt="Twitter" />
         </div>
         <p className="regLogUisLoginText">
-          Already have an account?
-          <span className="regLogUisLoginLink"> Login in</span>
+         Don't have an account?
+          <Link to={"/registerShop"}><span className="regLogUisLoginLink"> Register Shop</span></Link>
         </p>
       </div>
     </div>
