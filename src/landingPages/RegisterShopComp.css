@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+Rounded+1c:wght@900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.registershopmaincomponent {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #FFFEF9;
+}
+
+.completeRegistrationStepsDiv {
+    width: 30%;
+    height: 70vh;
+    margin-left: 5%;
+    margin-top: 5%;
+    border: 3px solid #E6E9EF;
+    border-radius: 26px;
+}
+
+.headerforcompleteregistratiionsstepsdiv {
+    height: 54px;
+    width: 100%;
+    border-bottom: 2px solid #E6E9EF;
+    display: flex;
+    align-items: center;
+}
+
+.newclassforheadingptagcompleteregistrationshop {
+    margin-left: 20px;
+    color: #2D3748;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+.stepsdivmaincont{
+    display: flex;
+}
+.cardsdivofstepscontainerIconAndCircleborderdiv{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #9197A6;
+    text-align: center;
+    align-content: center;
+}
+.cardsdivofstepscontainer{
+    margin-left: 12px;
+    align-content: center;
+}
+.regstepscardheading{
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #2D3748;
+
+}
+.regstepscarddescloc{
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    color: #808080;
+}
+.linestepsdiv{
+    width: 5px;
+    background: #D5D5D5;
+    height: 60px;
+    margin-left: 25px;
+    border-radius: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.anothermaindivfordisplayflexregistration{
+    width: 63%;
+    margin-top: 5%;
+    margin-left: 2%;
+}
+.bussinessnameregheadingclass{
+margin: 0;
+font-size: 40px;
+font-weight: bold;
+font-family: "Inter", sans-serif;
+color: #111111;
+}
+.bussinessstorenamecompdivcard{
+    border-radius: 26px;
+    background-color: #FFFFFF;
+    border: 1px solid #E6E9EF;
+    margin-right: 15%;
+    height: 230px;
+    margin-top: 20px;
+}
+.headingsubdivforcardregistrationbussiness{
+    height: 96px;
+    border-bottom: 1px solid #E6E9EF;
+    align-content: center;
+    padding-left: 30px;
+}
+.headingptagforbussinessregistration{
+    margin: 0;
+    font-size: 26px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    color: #111111;
+}
+.descriptionptagforbussinessregistration{
+    margin: 0;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    color: #808080;
+}
+.shopNameclassnameforbussinessregistration{
+    width: 99%;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid #C8C8C8;
+    font-size: 25px;
+}
+.bussinessstorenameinputdiv{
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+   
+}
