@@ -74,6 +74,7 @@
     width: 63%;
     margin-top: 5%;
     margin-left: 2%;
+    overflow-y: scroll;
 }
 .bussinessnameregheadingclass{
 margin: 0;
@@ -86,9 +87,9 @@ color: #111111;
     border-radius: 26px;
     background-color: #FFFFFF;
     border: 1px solid #E6E9EF;
-    padding-bottom: 20px;
     margin-right: 15%;
     margin-top: 20px;
+    padding-bottom: 30px;
 }
 .headingsubdivforcardregistrationbussiness{
     height: 96px;
@@ -112,7 +113,7 @@ color: #111111;
 }
 .shopNameclassnameforbussinessregistration{
     width: 99%;
-    height: 60px;
+    height: 50px;
     border-radius: 10px;
     border: 1px solid #C8C8C8;
     font-size: 25px;
@@ -155,6 +156,7 @@ color: #111111;
     display: flex;
 }
 .newborderbottomsonly{
+    position: relative;
     height: auto;
     border-radius: 0 0 10px 10px;
 }
@@ -164,4 +166,110 @@ color: #111111;
 .hghgvhgvhgv6576576{
     margin-left: 20px;
     margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+
+}
+.newwidthandpositionformapsearchdiv{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.cjsvdcgsd767434{
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 50px;
+}
+.jhbcjdhbfvjf473873{
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+}
+.newinputsearchlocinmapinput{
+    margin-left: 20px;
+    height: 90%;
+    border: none;
+    font-size: 14px;
+    width: 89%;
+    font-size: 25px;
+}
+.currentlocaltionmmaindivbutton{
+    margin-top: 28%;
+    display: flex
+    ;
+        justify-content: center;
+}
+.currentlocbutton{
+    display: flex;
+    width: 170px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+    border: 1px solid #3B82F6;
+    background-color: white;
+}
+.currentparatxtloc{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    color: #3B82F6;
+    margin: 0;
+}
+.gvhgvhgvh7576{
+    font-size: 15px;
+   
+}
+.vhvhgvhg67768{
+    margin-left: 0;
+}
+.hgvhvhg768{
+    margin-left: 0;
+}
+.newdividerdivforaddressheading{
+    margin-top: 20px;
+}
+.fvbjhsakcsdhb84223{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.bottomNotetxtdiv{
+    border-radius: 0 0 26px 26px;
+    background-color: #FFF7CE;
+    padding-left: 30px;
+    /* padding-right: 20px; */
+    color: #E8B300;
+    font-size: 16px;
+   margin-top: 20px;
+    font-family: "Inter", sans-serif;
+    height: 40px;
+    align-content: center;
+}
+.buttonnextdiv{
+    margin-right: 15%;
+    margin-top: 30px;
+    display: flex
+;
+    justify-content: right;
+padding-bottom: 20px;
+}
+.nextactualbutton{
+    width: 260px;
+    height: 60px;
+    background-color: #FFD700;
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    color: #575757;
+}
+.nkjdsncbuyeuw743834{
+    padding-bottom: 0;
 }

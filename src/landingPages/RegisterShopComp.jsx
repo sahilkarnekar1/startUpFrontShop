@@ -6,6 +6,10 @@ import evaluationPng from "../uiuxassets/evaluation.png"
 import IndiaFlag from "../uiuxassets/IndiaFlag.png"
 import dropdownimg from "../uiuxassets/arrow_drop_down.png"
 import mapBG from "../uiuxassets/Basemapimage.png"
+import searchImgIcon from "../uiuxassets/search.png"
+import GroupCurrentMark from "../uiuxassets/GroupCurrentMark.png"
+
+
 import { Checkbox } from 'antd'
 
 const RegisterShopComp = () => {
@@ -122,9 +126,18 @@ const RegisterShopComp = () => {
                         
                         </div>
 
+                        <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv">
+                <div className='shopNameclassnameforbussinessregistration phonecuntryinputcode'>
+<img className='indianFlagImg' src={IndiaFlag} alt='IndiaFlag'/>
+<p className='pluscontrycodepara'>+91</p>
+<img src={dropdownimg} alt="" className="dropdownarrow" />
+                </div>
+                <input className='shopNameclassnameforbussinessregistration phoneinputnewWidth' type="text" name="shopName" id="" placeholder='   Phone number*' />
+                    </div>
+
             </div>
 
-            <div className="bussinessstorenamecompdivcard">
+            <div className="bussinessstorenamecompdivcard nkjdsncbuyeuw743834">
                 <div className="headingsubdivforcardregistrationbussiness">
                     <p className="headingptagforbussinessregistration">
                     Add your Business/Store’s location for order pickup
@@ -134,19 +147,57 @@ const RegisterShopComp = () => {
 
                  <div className="bussinessstorenameinputdiv">
                     <div className="shopNameclassnameforbussinessregistration newborderbottomsonly">
-                    <div className="shopNameclassnameforbussinessregistration">
-                            hgvhgv
+                    <div className="newwidthandpositionformapsearchdiv">
+                            <div className="shopNameclassnameforbussinessregistration cjsvdcgsd767434">
+                                <img src={searchImgIcon} alt='searchImgIcon' className='jhbcjdhbfvjf473873'/>
+                                <input type="text" className="newinputsearchlocinmapinput" placeholder='Search for area, street name ' />
+                            </div>
+                            <div className="currentlocaltionmmaindivbutton">
+                                <div className="currentlocbutton">
+                                    <img src={GroupCurrentMark} className='currentimgloc' alt='GroupCurrentMark'/>
+                                    <p className='currentparatxtloc'>Use current location</p>
+                                </div>
+                            </div>
                         </div>
                         <img src={mapBG} alt="" srcset="" className='gvhgvhgvhg656576'/>
                        
                         <p className="headingptagforbussinessregistration hghgvhgvhgv6576576">
                         Sadashiv peth
                     </p>
-                    <p className="descriptionptagforbussinessregistration hghgvhgvhgv6576576">
+                    <p className="descriptionptagforbussinessregistration hghgvhgvhgv6576576 gvhgvhgvh7576">
                     Pune Station, pune                    </p>
                     </div>
+
+<div className="newdividerdivforaddressheading">
+<p className="headingptagforbussinessregistration hghgvhgvhgv6576576 hgvhvhg768">
+                    Business/Store’s address details                    </p>
+                    <p className="descriptionptagforbussinessregistration hghgvhgvhgv6576576 gvhgvhgvh7576 vhvhgvhg67768">
+                    Address details are basis the restaurant location mentioned above                     </p>
+
+                    <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv fvbjhsakcsdhb84223">
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Full name*' />
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Email address*' />
+                </div>
+
+                <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv fvbjhsakcsdhb84223">
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Full name*' />
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Email address*' />
+                </div>
+
+                <div className="bussinessstorenameinputdiv fvbjhsakcsdhb84223">
+                    <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Bussiness / Store Name' />
+                </div>
+</div>
+                </div>
+
+                <div className="bottomNotetxtdiv">
+                Please ensure that this address is the same as mentioned on your FSSAI license
                 </div>
               
+            </div>
+
+            <div className="buttonnextdiv">
+                <button className='nextactualbutton'>Next</button>
             </div>
 
 
