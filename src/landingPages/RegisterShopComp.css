@@ -40,6 +40,7 @@ padding-bottom: 20px;
     border: 3px solid #9197A6;
     text-align: center;
     align-content: center;
+    margin-left: 20px;
 }
 .cardsdivofstepscontainer{
     margin-left: 12px;
@@ -64,10 +65,10 @@ padding-bottom: 20px;
     width: 5px;
     background: #D5D5D5;
     height: 60px;
-    margin-left: 25px;
+    margin-left: 50px;
     border-radius: 10px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .anothermaindivfordisplayflexregistration{
     width: 63%;
@@ -299,5 +300,52 @@ padding-bottom: 20px;
 }
 .wrapstepsdivnewbjd7734{
     margin-top: 20px;
-    margin-left: 30px;
+}
+.emptyColorActiveStep{
+    width: 5px;
+    border-radius: 0 10px 10px 0;
+}
+.imgmodaldochead{
+    background-color: #FFF8D3;
+    display: flex
+;
+    justify-content: center;
+}
+.readyDocumentsHead{
+    font-size: 19px;
+    font-weight: 500;
+    color: #111111;
+    line-height: 1;
+    font-family: "Inter", sans-serif;
+}
+.documentstypecontentdiv{
+    display: flex;
+    margin-bottom: 10px;
+}
+.dhgcvsdch43783743{
+    margin: 0;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    font-family: "Inter", sans-serif;
+}
+.newAntdModalForDocModal div .ant-modal-content{
+    border-radius: 26px;
+}
+.OkayButtonDivModalDoc{
+    height: 90px;
+    border-top: 1px solid #E6E9EF;
+    align-content: center;
+}
+.okaybuttondocumentredymodal{
+    background-color: #FFD700;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
