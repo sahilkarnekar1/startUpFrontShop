@@ -8,6 +8,8 @@ import dropdownimg from "../uiuxassets/arrow_drop_down.png"
 import mapBG from "../uiuxassets/Basemapimage.png"
 import searchImgIcon from "../uiuxassets/search.png"
 import GroupCurrentMark from "../uiuxassets/GroupCurrentMark.png"
+import docsPngImage from "../uiuxassets/docs.png"
+import arrowrightpng from "../uiuxassets/arrow_right.png"
 
 
 import { Checkbox } from 'antd'
@@ -15,10 +17,13 @@ import { Checkbox } from 'antd'
 const RegisterShopComp = () => {
   return (
     <div className="registershopmaincomponent">
-        <div className="completeRegistrationStepsDiv">
+        <div className="wrapperdivforstepsdiv">
+ <div className="completeRegistrationStepsDiv">
             <div className="headerforcompleteregistratiionsstepsdiv">
                 <p className='newclassforheadingptagcompleteregistrationshop'>Complete your registration</p>
             </div>
+
+<div className="wrapstepsdivnewbjd7734">
             <div className="stepsdivmaincont">
                     <div className="cardsdivofstepscontainerIconAndCircleborderdiv">
                         <img src={listPng} alt='list'/>
@@ -68,8 +73,27 @@ const RegisterShopComp = () => {
                         <p className='regstepscarddescloc'>Name, location and contact number</p>
                     </div>
                 </div>
+                </div>
                 
         </div>
+
+<div className="completeRegistrationStepsDiv jhccsdjhcsdjh63743">
+<img src={docsPngImage} alt=''/>
+<p className="documentsrequiredsidebutton">
+Documents required for registration
+</p>
+<img src={arrowrightpng} alt=''/>
+</div>
+
+<div className="completeRegistrationStepsDiv jhccsdjhcsdjh63743">
+<p className="documentsrequiredsidebutton">
+Documents required for registration
+</p>
+<p className="documentsrequiredsidebutton hdcjhsdcjdc4634673">Yes</p>
+</div>
+        
+        </div>
+       
         <div className="anothermaindivfordisplayflexregistration">
             <p className='bussinessnameregheadingclass'>Business/Store information</p>
 
@@ -175,17 +199,17 @@ const RegisterShopComp = () => {
                     Address details are basis the restaurant location mentioned above                     </p>
 
                     <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv fvbjhsakcsdhb84223">
-                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Full name*' />
-                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Email address*' />
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Shop no. / building no. (optional)' />
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Floor / tower (optional)' />
                 </div>
 
                 <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv fvbjhsakcsdhb84223">
-                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Full name*' />
-                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Email address*' />
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Area / Sector / Locality*' />
+                    <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   City' />
                 </div>
 
                 <div className="bussinessstorenameinputdiv fvbjhsakcsdhb84223">
-                    <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Bussiness / Store Name' />
+                    <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Add any nearby landmark (optional)' />
                 </div>
 </div>
                 </div>
@@ -197,6 +221,7 @@ const RegisterShopComp = () => {
             </div>
 
             <div className="buttonnextdiv">
+                <button className='nextactualbutton'>Previous</button>
                 <button className='nextactualbutton'>Next</button>
             </div>
 
