@@ -5,9 +5,17 @@ import registrationpageline2 from "../uiuxassets/registrationpageline2.png";
 import googleicon from "../uiuxassets/googleicon.png";
 import facebookicon from "../uiuxassets/facebookicon.png";
 import xicon from "../uiuxassets/xicon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ShopRegLogReusableUis = ({ title }) => {
+
+  const navigate = useNavigate();
+
+  const handleLogin = ()=>{
+    localStorage.setItem("token", "hgvjsvdjhsvdj");
+navigate("/dashboard")
+  }
+
   return (
     <div className="regLogUisMainComp">
       <div className="regLogUisSubDiv">
@@ -26,7 +34,7 @@ const ShopRegLogReusableUis = ({ title }) => {
           id=""
           placeholder="  Enter Password"
         />
-        <button className="regLogUisMainCompButton">Login</button>
+        <button className="regLogUisMainCompButton" onClick={handleLogin}>Login</button>
         <div className="regLogUisMainCompregistrationpageline">
           <img
             className="regLogUisMainCompregistrationpageline1"
