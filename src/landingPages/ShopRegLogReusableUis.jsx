@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../landingPages/ShopRegLogReusableUis.css";
 import registrationpageline1 from "../uiuxassets/registrationpageline1.png";
 import registrationpageline2 from "../uiuxassets/registrationpageline2.png";
@@ -6,14 +6,33 @@ import googleicon from "../uiuxassets/googleicon.png";
 import facebookicon from "../uiuxassets/facebookicon.png";
 import xicon from "../uiuxassets/xicon.png";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { API_BASE_URL } from "../apis/api";
 
 const ShopRegLogReusableUis = ({ title }) => {
 
+  const [formData,setFormData] = useState({
+    email: "",
+    password: "",
+  })
   const navigate = useNavigate();
 
-  const handleLogin = ()=>{
-    localStorage.setItem("token", "hgvjsvdjhsvdj");
-navigate("/dashboard")
+  const handleLogin = async()=>{
+    try {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
+      console.log(response.data);
+      if(response.status === 201){
+        localStorage.setItem("token", response.data.token);
+        toast.success("Login Successful");
+        navigate("/dashboard");
+      }else{
+        toast.error("Login Failed");
+      }
+    } catch (error) {
+      toast.error("Login error:", error);
+    }
+  
   }
 
   return (
@@ -23,16 +42,20 @@ navigate("/dashboard")
         <input
           className="regLogUisMainCompinputStyles"
           type="text"
-          name=""
+          name="email"
           id=""
           placeholder="  Enter Email ID"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
         <input
           className="regLogUisMainCompinputStyles"
           type="password"
-          name=""
+          name="password"
           id=""
           placeholder="  Enter Password"
+          value={formData.password}
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
         />
         <button className="regLogUisMainCompButton" onClick={handleLogin}>Login</button>
         <div className="regLogUisMainCompregistrationpageline">

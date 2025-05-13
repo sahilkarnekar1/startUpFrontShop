@@ -17,16 +17,95 @@ import docimageheadingvector from "../uiuxassets/docimageheadingvector.png"
 import checkedCircle from "../uiuxassets/check_circle.png"
 
 
-import { Checkbox, Modal } from 'antd'
+import { Checkbox, Modal, Radio } from 'antd'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import { API_BASE_URL } from '../apis/api'
 
 const RegisterShopComp = () => {
 
-
+    const [formData, setFormData] = useState({
+        shopName: '',
+        businessType: '',
+        pickupLocation: {
+            latitude:'',
+            longitude:''
+        },
+        shopNumber:'',
+        floorNumber:'',
+        shopArea: '',
+        shopCity: '',
+        shopLandmark: '',
+        owner:{
+            name:'',
+            email:'',
+            phone:'',
+            storePrimaryPhone:'',
+            password:''
+        },
+        panCard: '',
+        fssaiLicense: '',
+        bankDetails: '',
+        shopImages: '',
+    });
+    
     const [currentStep , setCurrentStep] = useState(1);
     const [openDocModal , setOpenDocModal] = useState(false);
-
-const handlenextclick = ()=>{
+    const options = [
+        { label: 'Grocery', value: 'Grocery' },
+        { label: 'Fashion', value: 'Fashion' },
+        { label: 'Food', value: 'Food' },
+      ];
+      
+const handlenextclick = async()=>{
     if (currentStep === 3) {
+        try {
+            const data = new FormData();
+            data.append('shopName', formData.shopName);
+            data.append('businessType', formData.businessType);
+            data.append('shopNumber', formData.shopNumber);
+            data.append('floorNumber', formData.floorNumber);
+            data.append('shopArea', formData.shopArea);
+            data.append('shopCity', formData.shopCity);
+            data.append('shopLandmark', formData.shopLandmark);
+        
+            data.append('owner[name]', formData.owner.name);
+            data.append('owner[email]', formData.owner.email);
+            data.append('owner[phone]', formData.owner.phone);
+            data.append('owner[storePrimaryPhone]', formData.owner.storePrimaryPhone);
+            data.append('owner[password]', formData.owner.password);
+        
+            data.append('pickupLocation[latitude]', formData.pickupLocation.latitude);
+            data.append('pickupLocation[longitude]', formData.pickupLocation.longitude);
+  
+              data.append('panCard', formData.panCard[0]);
+      
+              data.append('fssaiLicense', formData.fssaiLicense[0]);
+            
+              data.append('bankDetails', formData.bankDetails[0]); // string is fine if backend expects text
+            
+            if (formData.shopImages) {
+              if (Array.isArray(formData.shopImages)) {
+                formData.shopImages.forEach((image) => {
+                  data.append('shopImages', image);
+                });
+              } else {
+                data.append('shopImages', formData.shopImages);
+              }
+            }
+        
+            console.log(data);
+            
+            const response = await axios.post(`${API_BASE_URL}/api/auth/register`, data);
+            if (response.status === 201) {
+                toast.success(response.data.message);
+            }else{
+                toast.error("Something went wrong");
+            }
+            
+          } catch (error) {
+            toast.error(error);
+          }
         return;
     }
     setCurrentStep(currentStep + 1);
@@ -37,7 +116,59 @@ const handleprevclick = ()=>{
 const handleOpenDocModal = ()=>{
     setOpenDocModal(true);
 }
+const handleChange = (e) => {
+    const { name, value } = e.target;
 
+    setFormData(prev => ({
+        ...prev,
+        [name]: value
+    }));
+};
+
+const handleNestedChange = (e, parentKey) => {
+    const { name, value } = e.target;
+
+    setFormData(prev => ({
+        ...prev,
+        [parentKey]: {
+            ...prev[parentKey],
+            [name]: value
+        }
+    }));
+};
+
+const handleBusinessTypeChange = (value) => {
+    setFormData(prev => ({
+        ...prev,
+        businessType: value
+    }));
+};
+
+const handleGetCurrentLocation = ()=>{
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            formData.pickupLocation.latitude = position.coords.latitude;
+            formData.pickupLocation.longitude = position.coords.longitude;
+          },
+          (error) => {
+            console.error('Error getting location:', error);
+          }
+        );
+      } else {
+        alert('Geolocation is not supported by your browser.');
+      }
+}
+const handleFileUploads = (e)=>{
+    const { name, files } = e.target;
+    const fileList = Array.from(files); // multiple files
+
+    setFormData(prev => ({
+        ...prev,
+        [name]: fileList, // array of files
+    }));
+}
+console.log(formData);
 
     return (
         <>
@@ -171,8 +302,20 @@ const handleOpenDocModal = ()=>{
                 Customers will see this name                     </p>
         </div>
         <div className="bussinessstorenameinputdiv">
-            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Bussiness / Store Name' />
+            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Bussiness / Store Name' value={formData.shopName} onChange={handleChange}/>
         </div>
+
+        <div className="headingsubdivforcardregistrationbussiness">
+            <p className="headingptagforbussinessregistration">
+                Bussiness Type
+            </p>
+            <p className="descriptionptagforbussinessregistration">
+                Select A Bussiness Type                    </p>
+        </div>
+        <Radio.Group block options={options} defaultValue="Apple" style={{
+            marginTop:"20px"
+        }} value={formData.businessType}
+        onChange={(e) => handleBusinessTypeChange(e.target.value)}/>
     </div>
 
 
@@ -194,7 +337,7 @@ const handleOpenDocModal = ()=>{
             <div className="currentlocaltionmmaindivbutton">
                 <div className="currentlocbutton">
                     <img src={GroupCurrentMark} className='currentimgloc' alt='GroupCurrentMark' />
-                    <p className='currentparatxtloc'>Use current location</p>
+                    <p className='currentparatxtloc' onClick={handleGetCurrentLocation}>Use current location</p>
                 </div>
             </div>
         </div>
@@ -214,17 +357,22 @@ const handleOpenDocModal = ()=>{
             Address details are basis the restaurant location mentioned above                     </p>
 
         <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv fvbjhsakcsdhb84223">
-            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Shop no. / building no. (optional)' />
-            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Floor / tower (optional)' />
+            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopNumber" id="" placeholder='   Shop no. / building no. (optional)' value={formData.shopNumber}
+  onChange={handleChange} />
+            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="floorNumber" id="" placeholder='   Floor / tower (optional)' value={formData.floorNumber}
+  onChange={handleChange}/>
         </div>
 
         <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv fvbjhsakcsdhb84223">
-            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Area / Sector / Locality*' />
-            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   City' />
+            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopArea" id="" placeholder='   Area / Sector / Locality*' value={formData.shopArea}
+  onChange={handleChange}/>
+            <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopCity" id="" placeholder='   City' value={formData.shopCity}
+  onChange={handleChange}/>
         </div>
 
         <div className="bussinessstorenameinputdiv fvbjhsakcsdhb84223">
-            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Add any nearby landmark (optional)' />
+            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopLandmark" id="" placeholder='   Add any nearby landmark (optional)' value={formData.shopLandmark}
+  onChange={handleChange}/>
         </div>
     </div>
 </div>
@@ -250,16 +398,34 @@ const handleOpenDocModal = ()=>{
                             We will use this details for all business communication and updates                    </p>
                     </div>
                     <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv">
-                        <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Full name*' />
-                        <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" name="shopName" id="" placeholder='   Email address*' />
+                        <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" id="" placeholder='   Full name*' name="name"
+  value={formData.owner.name}
+  onChange={(e) => handleNestedChange(e, 'owner')}/>
+                        <input className='shopNameclassnameforbussinessregistration newwidthforfirstnameofowner' type="text" id="" placeholder='   Email address*' name="email"
+  value={formData.owner.email}
+  onChange={(e) => handleNestedChange(e, 'owner')}/>
                     </div>
+
+                    <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv">
+                        <div className='shopNameclassnameforbussinessregistration phonecuntryinputcode'>
+                            <img className='indianFlagImg' src={IndiaFlag} alt='IndiaFlag' />
+                            <p className='pluscontrycodepara'>Password</p>
+                        </div>
+                        <input className='shopNameclassnameforbussinessregistration phoneinputnewWidth' type="text" id="" placeholder='   Enter Shop Password*' name="password"
+  value={formData.owner.password}
+  onChange={(e) => handleNestedChange(e, 'owner')}/>
+                    </div>
+
+
                     <div className="bussinessstorenameinputdiv newdiplayflexonlyforthisdiv">
                         <div className='shopNameclassnameforbussinessregistration phonecuntryinputcode'>
                             <img className='indianFlagImg' src={IndiaFlag} alt='IndiaFlag' />
                             <p className='pluscontrycodepara'>+91</p>
                             <img src={dropdownimg} alt="" className="dropdownarrow" />
                         </div>
-                        <input className='shopNameclassnameforbussinessregistration phoneinputnewWidth' type="text" name="shopName" id="" placeholder='   Phone number*' />
+                        <input className='shopNameclassnameforbussinessregistration phoneinputnewWidth' type="text" id="" placeholder='   Phone number*' name="phone"
+  value={formData.owner.phone}
+  onChange={(e) => handleNestedChange(e, 'owner')}/>
                     </div>
 
 
@@ -286,7 +452,9 @@ const handleOpenDocModal = ()=>{
                             <p className='pluscontrycodepara'>+91</p>
                             <img src={dropdownimg} alt="" className="dropdownarrow" />
                         </div>
-                        <input className='shopNameclassnameforbussinessregistration phoneinputnewWidth' type="text" name="shopName" id="" placeholder='   Phone number*' />
+                        <input className='shopNameclassnameforbussinessregistration phoneinputnewWidth' type="text" id="" placeholder='   Phone number*' name="storePrimaryPhone"
+  value={formData.owner.storePrimaryPhone}
+  onChange={(e) => handleNestedChange(e, 'owner')}/>
                     </div>
 
                 </div>
@@ -311,11 +479,11 @@ const handleOpenDocModal = ()=>{
                 Will Verify All Documents               </p>
         </div>
         <div className="bussinessstorenameinputdiv">
-            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Upload PAN card' />
-            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Upload FSSAI license' />
-            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Upload Bank Account details' />
-            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Upload GST number, if applicable' />
-            <input className='shopNameclassnameforbussinessregistration' type="text" name="shopName" id="" placeholder='   Upload Images' />
+            <input className='shopNameclassnameforbussinessregistration' type="file" name="panCard" id="" placeholder='   Upload PAN card' onChange={handleFileUploads}/>
+            <input className='shopNameclassnameforbussinessregistration' type="file" name="fssaiLicense" id="" placeholder='   Upload FSSAI license' onChange={handleFileUploads}/>
+            <input className='shopNameclassnameforbussinessregistration' type="file" name="bankDetails" id="" placeholder='   Upload Bank Account details' onChange={handleFileUploads}/>
+            <input className='shopNameclassnameforbussinessregistration' type="file" name="shopImages" id="" placeholder='   Upload GST number, if applicable' onChange={handleFileUploads} multiple/>
+          
         </div>
     </div>
     )
@@ -328,7 +496,7 @@ const handleOpenDocModal = ()=>{
                         )
                     }
                   
-                        <button className='nextactualbutton' onClick={handlenextclick}>Next</button>
+                        <button className='nextactualbutton' onClick={handlenextclick}> {currentStep === 3 ? "submit" : "Next"}</button>
                    
                    
                 </div>
@@ -336,8 +504,6 @@ const handleOpenDocModal = ()=>{
 
             </div>
         </div>
-
-
 {
     <Modal
 className='newAntdModalForDocModal'

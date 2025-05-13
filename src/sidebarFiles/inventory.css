@@ -1,0 +1,15 @@
+.inventoryMainContainer{
+    width: 100%;
+}
+.setFloatingButtonContainer{
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+}
+.addProductInventoryForm{
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+.widthmaking100focenterenpty{
+    width: 100%;
+}

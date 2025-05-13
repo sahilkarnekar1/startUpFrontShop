@@ -4,13 +4,16 @@ import ShopRegistration from './landingPages/ShopRegistration';
 import RegisterShopComp from './landingPages/RegisterShopComp';
 import ProtectedRoute from './Protected/ProtectedRoute';
 import DashboardLayout from './Dashboards/DashboardLayout';
-import Dashboard from './tempFiles/Dashboard';
-import Inventory from './tempFiles/Inventory';
-import Orders from './tempFiles/Orders';
-import Profile from './tempFiles/Profile';
+import Dashboard from './sidebarFiles/Dashboard';
+import Inventory from './sidebarFiles/Inventory';
+import Orders from './sidebarFiles/Orders';
+import Profile from './sidebarFiles/Profile';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
+    <>
+    
     <Router>
       <Routes>
       <Route path="/" element={<LandingPage />} />
@@ -28,7 +31,11 @@ function App() {
         </Route>
        
       </Routes>
+      <ToastContainer />
     </Router>
+
+  
+    </>
   );
 }
 
