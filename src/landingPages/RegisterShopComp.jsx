@@ -17,13 +17,13 @@ import docimageheadingvector from "../uiuxassets/docimageheadingvector.png"
 import checkedCircle from "../uiuxassets/check_circle.png"
 
 
-import { Checkbox, Modal, Radio } from 'antd'
+import { Checkbox, Modal, Radio, Spin } from 'antd'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { API_BASE_URL } from '../apis/api'
 
 const RegisterShopComp = () => {
-
+ const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         shopName: '',
         businessType: '',
@@ -59,6 +59,7 @@ const RegisterShopComp = () => {
       
 const handlenextclick = async()=>{
     if (currentStep === 3) {
+        setLoading(true)
         try {
             const data = new FormData();
             data.append('shopName', formData.shopName);
@@ -105,6 +106,8 @@ const handlenextclick = async()=>{
             
           } catch (error) {
             toast.error(error);
+          }finally{
+            setLoading(false)
           }
         return;
     }
@@ -550,7 +553,11 @@ className='newAntdModalForDocModal'
 </div>
     </Modal>
 }
-
+   {loading && (
+        <div className="loaderstylingadjustmentclass">
+          <Spin size="large" />
+        </div>
+      )}
         </>
   
     )

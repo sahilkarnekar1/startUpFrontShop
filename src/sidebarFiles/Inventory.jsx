@@ -1,5 +1,5 @@
 import { CloseOutlined, DeleteOutlined, DownloadOutlined, EditOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons'
-import { Avatar, Button, Card, Col, Empty, Form, Input, InputNumber, Layout, Modal, Popconfirm, Row, Select, Typography, Upload } from 'antd'
+import { Avatar, Button, Card, Col, Empty, Form, Input, InputNumber, Layout, Modal, Popconfirm, Row, Select, Spin, Typography, Upload } from 'antd'
 import React, { useEffect, useState } from 'react'
 import "../sidebarFiles/inventory.css"
 import axios from 'axios'
@@ -52,6 +52,7 @@ const handleResetStatesForAll = ()=>{
   }, []);
 
   const handleAddProduct = async (formDataFromSubmit) => {
+    setLoading(true)
     try {
       const response = await axios.post(`${API_BASE_URL}/api/product/addProduct`, formDataFromSubmit, {
         headers: {
@@ -64,11 +65,14 @@ const handleResetStatesForAll = ()=>{
       fetchProducts();
     } catch (error) {
       console.error("❌ Error adding product:", error);
+    }finally{
+      setLoading(false)
     }
   };
 
 
   const handleUpdateProduct = async (formData) => {
+    setLoading(true)
     try {
       if (deletedImageUrls.length > 0) {
         deletedImageUrls.forEach(url => {
@@ -87,6 +91,8 @@ const handleResetStatesForAll = ()=>{
       fetchProducts();
     } catch (error) {
       toast.error("Error updating product");
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -122,6 +128,7 @@ const handleResetStatesForAll = ()=>{
     });
   };
   const handleDelete = async(productId)=>{
+    setLoading(true)
     try {
       const response = await axios.delete(`${API_BASE_URL}/api/product/deleteProduct/${productId}`, 
         {
@@ -134,6 +141,8 @@ const handleResetStatesForAll = ()=>{
       fetchProducts();
     } catch (error) {
       toast.error(error.message);
+    }finally{
+      setLoading(false)
     }
    
   }
@@ -350,6 +359,12 @@ const handleResetStatesForAll = ()=>{
    </div>
        
       </Modal>
+
+        {loading && (
+              <div className="loaderstylingadjustmentclass">
+                <Spin size="large" />
+              </div>
+            )}
     </div>
   )
 }

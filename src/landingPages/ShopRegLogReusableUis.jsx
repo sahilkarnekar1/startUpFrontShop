@@ -9,8 +9,11 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { API_BASE_URL } from "../apis/api";
+import { Spin } from "antd";
 
 const ShopRegLogReusableUis = ({ title }) => {
+
+  const [loading, setLoading] = useState(false);
 
   const [formData,setFormData] = useState({
     email: "",
@@ -19,6 +22,7 @@ const ShopRegLogReusableUis = ({ title }) => {
   const navigate = useNavigate();
 
   const handleLogin = async()=>{
+    setLoading(true);
     try {
       const response = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
       console.log(response.data);
@@ -31,12 +35,14 @@ const ShopRegLogReusableUis = ({ title }) => {
       }
     } catch (error) {
       toast.error("Login error:", error);
+    }finally{
+      setLoading(false)
     }
   
   }
 
-  return (
-    <div className="regLogUisMainComp">
+  return (<>
+   <div className="regLogUisMainComp">
       <div className="regLogUisSubDiv">
         <h4 className="regLogUisMainCompTitle">Login</h4>
         <input
@@ -90,6 +96,15 @@ const ShopRegLogReusableUis = ({ title }) => {
         </p>
       </div>
     </div>
+
+    {loading && (
+        <div className="loaderstylingadjustmentclass">
+          <Spin size="large" />
+        </div>
+      )}
+  </>
+   
+
   );
 };
 
